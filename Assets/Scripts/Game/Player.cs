@@ -13,7 +13,7 @@ public class Player : BaseEntity {
     private float _canStepTimer = 0f;
     private bool _isCanStep = false;
 
-    void Start()
+    protected override void Start()
     {
         GameController.GetInstance().GameStep += GameStep;
         Level = 0;
@@ -36,7 +36,7 @@ public class Player : BaseEntity {
         }
     }
 
-    private void Damage()
+    public void Damage()
     {
         if (Health >= 0)
         {

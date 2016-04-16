@@ -17,7 +17,11 @@ public class BaseEntity : MonoBehaviour
         }
     }
     public tk2dSprite Graphics;
+    public Animation Anim;
 
+    protected virtual void Start()
+    {
+    }
 
     public void SetPos()
     {
@@ -40,7 +44,7 @@ public class BaseEntity : MonoBehaviour
     protected virtual void Update()
     {
         Vector3 velocity = new Vector3();
-        MyTransform.localPosition = Vector3.SmoothDamp(MyTransform.localPosition, _targetPos, ref velocity, 0.05f);
+        MyTransform.localPosition = Vector3.SmoothDamp(MyTransform.localPosition, _targetPos, ref velocity, 0.025f);
     }
 
 }

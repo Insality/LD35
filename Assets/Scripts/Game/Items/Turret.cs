@@ -7,9 +7,10 @@ public class Turret : LevelEntity
     public int ShootPeriod = 4;
     public MoveDirection Direction = MoveDirection.Right;
 
-    void Start()
+    protected override void Start()
     {
         CanStepOn = false;
+        Anim.AddClip(AppController.GetInstance().LittleResizeUp, "Resize");
     }
 
     public override void OnGameBeat(int counter)
@@ -18,19 +19,15 @@ public class Turret : LevelEntity
         if (counter%ShootPeriod == 0)
         {
             Shoot();
+            Anim.Play("Resize");
         }
     }
 
     private void Shoot()
     {
         var sc = Coords + Player.GetDirection(Direction);
-        TurretProjectile projectile = Instantiate(ProjectilePrefab).GetComponent<TurretProjectile>();
 
-        projectile.MyTransform.parent = MyTransform.parent;
-        projectile.Coords = sc;
-        projectile.SetPosInstantly();
+        var projectile = Cell.Map.AddItem(ProjectilePrefab, sc).GetComponent<TurretProjectile>();
         projectile.Init(Direction);
-
-        Cell.Map.Items.Add(projectile);
     }
 }

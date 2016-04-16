@@ -11,6 +11,10 @@ public class AppController: MonoBehaviour
     public static float ScreenWidth;
     public static float ScreenHeight;
 
+    // Clips
+
+    public AnimationClip LittleResizeUp;
+    public AnimationClip SpikesUp;
 
     private void Start()
     {

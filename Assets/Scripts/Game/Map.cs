@@ -18,8 +18,8 @@ public class Map : MonoBehaviour
     public GameObject BossPrefab;
     
     public Cell[,] Cells;
-    public List<LevelEntity> Items;
-    public List<LevelEntity> _itemsToRemove;
+    public List<LevelEntity> Items = new List<LevelEntity>();
+    public List<LevelEntity> _itemsToRemove = new List<LevelEntity>();
 
    [HideInInspector] public Vector2 MapSize;
    [HideInInspector] public Vector2 SpawnPoint;
@@ -27,8 +27,6 @@ public class Map : MonoBehaviour
     void Start()
     {
         GameController.GetInstance().GameStep += GameStep;
-        Items = new List<LevelEntity>();
-        _itemsToRemove = new List<LevelEntity>();
     }
 
     private void GameStep(int counter)
@@ -160,6 +158,9 @@ public class Map : MonoBehaviour
                     case 'A':
                         Cells[i, j].AddItem(ArrowPrefab);
                         break;
+                    case 'H':
+                        AddItem(HunterPrefab, new Vector2(i, j));
+                        break;
                 }
             }
         }
@@ -184,7 +185,17 @@ public class Map : MonoBehaviour
         return Cells[(int) v.x, (int) v.y];
     }
 
-    public void DestroyItem(TurretProjectile item)
+
+    public LevelEntity AddItem(GameObject prefab, Vector2 coords)
+    {
+        LevelEntity item = Instantiate(prefab).GetComponent<LevelEntity>();
+        item.transform.parent = transform;
+        item.Coords = coords;
+        item.SetPosInstantly();
+        Items.Add(item);
+        return item;
+    }
+    public void DestroyItem(LevelEntity item)
     {
         _itemsToRemove.Add(item);
     }

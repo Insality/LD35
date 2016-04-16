@@ -148,4 +148,5 @@ public enum SoundType
 
 public enum MusicType
 {
+    GameMusic = 0,
 }

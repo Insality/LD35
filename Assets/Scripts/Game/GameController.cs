@@ -27,8 +27,10 @@ public class GameController : MonoBehaviour
 
     private IEnumerator StartBeating()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         _beatCounter = 0;
+        SoundController.PlayMusic(MusicType.GameMusic);
+        yield return new WaitForSeconds(1.84f);
         while (_isRunning)
         {
             GameBeat();
@@ -44,11 +46,11 @@ public class GameController : MonoBehaviour
 
         if (_beatCounter%4 == 0)
         {
-            SoundController.PlaySound(SoundType.TestKick2);
+//            SoundController.PlaySound(SoundType.TestKick2);
         }
         else
         {
-            SoundController.PlaySound(SoundType.TestKick);
+//            SoundController.PlaySound(SoundType.TestKick);
         }
 
         if (GameStep != null)

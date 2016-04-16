@@ -118,9 +118,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.2"
-     inkscape:cx="527.04658"
-     inkscape:cy="750.89414"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="498.99828"
+     inkscape:cy="568.20079"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -149,8 +149,8 @@
     <circle
        style="opacity:1;fill:#719999;fill-opacity:1;fill-rule:evenodd;stroke:#4b6666;stroke-width:4.73032761;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4136"
-       cx="50.714287"
-       cy="69.147919"
+       cx="327.49609"
+       cy="81.269753"
        r="7.1087079"
        inkscape:export-filename="D:\code\Unity\LD35\Assets\Sprites\Game\Player\Player1.png"
        inkscape:export-xdpi="107"
@@ -160,8 +160,8 @@
        id="rect4138"
        width="2.0561085"
        height="52.948967"
-       x="91.025513"
-       y="41.959148"
+       x="367.80731"
+       y="54.080978"
        inkscape:export-filename="D:\code\Unity\LD35\Assets\Sprites\Game\Player\Player2.png"
        inkscape:export-xdpi="107"
        inkscape:export-ydpi="107" />
@@ -177,8 +177,8 @@
        style="opacity:1;fill:#719999;fill-opacity:1;fill-rule:evenodd;stroke:#4b6666;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4140-8"
        sodipodi:sides="5"
-       sodipodi:cx="336.12827"
-       sodipodi:cy="67.37809"
+       sodipodi:cx="612.91006"
+       sodipodi:cy="79.49992"
        sodipodi:r1="28.234621"
        sodipodi:r2="14.117311"
        sodipodi:arg1="-1.5707963"
@@ -186,7 +186,7 @@
        inkscape:flatsided="true"
        inkscape:rounded="0.15"
        inkscape:randomized="0"
-       d="m 336.12827,39.143469 c 4.97876,0 25.31419,14.774554 26.85272,19.509644 1.53852,4.73509 -6.22892,28.640819 -10.25683,31.567266 -4.02791,2.926446 -29.16388,2.926445 -33.19179,-10e-7 -4.02791,-2.926447 -11.79535,-26.832177 -10.25682,-31.567267 1.53852,-4.735089 21.87395,-19.509642 26.85272,-19.509642 z"
+       d="m 612.91003,51.265303 c 4.97877,0 25.3142,14.774554 26.85272,19.509644 1.53853,4.73509 -6.22891,28.640819 -10.25682,31.567263 -4.02791,2.92645 -29.16388,2.92645 -33.19179,0 -4.02791,-2.926445 -11.79535,-26.832175 -10.25683,-31.567265 1.53853,-4.73509 21.87396,-19.509642 26.85272,-19.509642 z"
        inkscape:transform-center-y="-5.1528185"
        inkscape:export-filename="D:\code\Unity\LD35\Assets\Sprites\Game\Player\Player5.png"
        inkscape:export-xdpi="107"
@@ -196,8 +196,8 @@
        style="opacity:1;fill:#719999;fill-opacity:1;fill-rule:evenodd;stroke:#4b6666;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4140-8-7"
        sodipodi:sides="6"
-       sodipodi:cx="429.06229"
-       sodipodi:cy="64.377266"
+       sodipodi:cx="705.84408"
+       sodipodi:cy="76.499096"
        sodipodi:r1="28.234621"
        sodipodi:r2="14.117311"
        sodipodi:arg1="-1.5707963"
@@ -205,7 +205,7 @@
        inkscape:flatsided="true"
        inkscape:rounded="0.15"
        inkscape:randomized="0"
-       d="m 429.06229,36.142645 c 4.23519,0 22.3343,10.449526 24.4519,14.117311 2.11759,3.667785 2.11759,24.566836 0,28.234621 -2.1176,3.667785 -20.21671,14.11731 -24.4519,14.11731 -4.2352,0 -22.33431,-10.449526 -24.4519,-14.117311 -2.1176,-3.667785 -2.1176,-24.566836 0,-28.234621 2.11759,-3.667785 20.2167,-14.11731 24.4519,-14.11731 z"
+       d="m 705.84406,48.264479 c 4.23519,0 22.3343,10.449526 24.45189,14.117311 2.1176,3.667785 2.1176,24.566836 0,28.234621 -2.11759,3.667785 -20.2167,14.117309 -24.4519,14.117309 -4.23519,0 -22.3343,-10.449525 -24.45189,-14.11731 -2.1176,-3.667785 -2.1176,-24.566837 0,-28.234621 2.11759,-3.667785 20.2167,-14.11731 24.4519,-14.11731 z"
        inkscape:transform-center-y="-5.1528185"
        inkscape:export-filename="D:\code\Unity\LD35\Assets\Sprites\Game\Player\Player6.png"
        inkscape:export-xdpi="107"
@@ -215,8 +215,8 @@
        style="opacity:1;fill:#719999;fill-opacity:1;fill-rule:evenodd;stroke:#4b6666;stroke-width:5.13845825;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4178"
        sodipodi:sides="4"
-       sodipodi:cx="242.16612"
-       sodipodi:cy="68.099754"
+       sodipodi:cx="518.94792"
+       sodipodi:cy="80.221585"
        sodipodi:r1="28.216688"
        sodipodi:r2="22.82778"
        sodipodi:arg1="0.78539816"
@@ -224,7 +224,7 @@
        inkscape:flatsided="true"
        inkscape:rounded="0.15"
        inkscape:randomized="0"
-       d="m 262.11833,88.051966 c -4.2325,4.232503 -35.67192,4.232503 -39.90442,0 -4.2325,-4.232503 -4.2325,-35.67192 0,-39.904423 4.2325,-4.232503 35.67192,-4.232503 39.90442,0 4.23251,4.232503 4.23251,35.67192 0,39.904423 z"
+       d="m 538.90015,100.1738 c -4.2325,4.2325 -35.67192,4.2325 -39.90442,0 -4.23251,-4.232503 -4.23251,-35.67192 0,-39.904423 4.2325,-4.232504 35.67192,-4.232504 39.90442,0 4.2325,4.232503 4.2325,35.671919 0,39.904423 z"
        inkscape:transform-center-x="1.0500654"
        inkscape:transform-center-y="-1.0500654"
        inkscape:export-filename="D:\code\Unity\LD35\Assets\Sprites\Game\Player\Player4.png"
@@ -878,8 +878,8 @@
        style="opacity:1;fill:#719999;fill-opacity:1;fill-rule:evenodd;stroke:#4b6666;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4140"
        sodipodi:sides="3"
-       sodipodi:cx="155.10331"
-       sodipodi:cy="74.184785"
+       sodipodi:cx="431.88511"
+       sodipodi:cy="86.306614"
        sodipodi:r1="28.234621"
        sodipodi:r2="14.117311"
        sodipodi:arg1="-1.5707963"
@@ -887,7 +887,7 @@
        inkscape:flatsided="true"
        inkscape:rounded="0.15"
        inkscape:randomized="0"
-       d="m 155.10332,45.950163 c 7.33557,0 28.11968,35.999142 24.4519,42.351932 -3.66779,6.35279 -45.23602,6.352789 -48.9038,-10e-7 -3.66779,-6.35279 17.11633,-42.351931 24.4519,-42.351931 z"
+       d="m 431.8851,58.071997 c 7.33557,0 28.11969,35.999142 24.4519,42.351933 -3.66779,6.35279 -45.23601,6.35279 -48.9038,0 -3.66778,-6.352792 17.11633,-42.351934 24.4519,-42.351933 z"
        inkscape:transform-center-y="-5.1528185"
        inkscape:export-filename="D:\code\Unity\LD35\Assets\Sprites\Game\Player\Player3.png"
        inkscape:export-xdpi="107"
@@ -1028,40 +1028,6 @@
              style="opacity:1;fill:#f0505c;fill-opacity:1;fill-rule:evenodd;stroke:#558c8c;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
              transform="matrix(0.82128764,-0.57051434,0.57051434,0.82128764,13.501292,347.92457)" />
         </g>
-      </g>
-    </g>
-    <g
-       id="g4789"
-       inkscape:export-filename="D:\code\Unity\LD35\Assets\Sprites\Game\Entity\Box.png"
-       inkscape:export-xdpi="107"
-       inkscape:export-ydpi="107">
-      <path
-         id="path4182-72-1-47-4"
-         d="m 534.7271,396.98167 c -3.10091,3.10091 -40.75259,3.10091 -43.8535,0 -3.10091,-3.10091 -3.10091,-40.75258 0,-43.85349 3.10091,-3.10091 40.75259,-3.10091 43.8535,0 3.10091,3.10091 3.10091,40.75258 0,43.85349 z"
-         inkscape:transform-center-y="-3.3111141"
-         inkscape:transform-center-x="3.3111141"
-         style="opacity:1;fill:#937435;fill-opacity:1;fill-rule:evenodd;stroke:#60626f;stroke-width:4.62185574;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         inkscape:connector-curvature="0" />
-      <g
-         id="g5272"
-         style="fill:#85692f;fill-opacity:1">
-        <path
-           style="fill:#85692f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 490.93414,370.19356 c 0,0 18.85184,-4.1082 28.22113,-2.84105 4.44999,0.60184 7.3834,5.67311 12.56378,4.86136 3.48793,-0.54655 2.99489,5.9458 2.99489,5.9458 0,0 -12.43892,-3.26659 -18.05789,-4.97123 -5.61897,-1.70463 -10.63276,2.18215 -16.75681,3.25544 -6.12405,1.07329 -9.02058,-0.69448 -9.02058,-0.69448 z"
-           id="path4755"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="csscsscc" />
-        <path
-           style="fill:#85692f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 491.1002,384.56386 c 0,0 2.52929,-3.12606 11.89858,-1.8589 2.225,0.30092 9.31538,1.525 16.94617,-0.13381 6.92531,-1.50546 14.43458,3.92373 14.43458,3.92373 l -0.57096,5.9458 c 0,0 -16.35075,0.61734 -21.96972,-1.0873 -5.61897,-1.70463 -5.76669,-1.61249 -11.89074,-0.5392 -6.12405,1.07329 -8.39558,-0.69448 -8.39558,-0.69448 z"
-           id="path4755-5"
-           inkscape:connector-curvature="0"
-           sodipodi:nodetypes="cssccsscc" />
-        <path
-           style="fill:#85692f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 501.73014,370.95118 c 6.50286,-10.10153 15.40483,-13.06885 15.40483,-13.06885 0,0 8.71257,-1.8309 10.6066,1.70463 1.89404,3.53553 -7.82868,4.10375 -5.24016,7.32361 2.58851,3.21986 -11.99557,2.46224 -11.99557,2.46224 z"
-           id="path4787"
-           inkscape:connector-curvature="0" />
       </g>
     </g>
     <circle
@@ -1424,6 +1390,47 @@
        inkscape:export-filename="D:\code\Unity\LD35\Assets\Sprites\Game\Entity\Arrow.png"
        inkscape:export-xdpi="107"
        inkscape:export-ydpi="107" />
+    <g
+       id="g5651"
+       inkscape:export-filename="D:\code\Unity\LD35\Assets\Sprites\Game\Entity\Box.png"
+       inkscape:export-xdpi="107"
+       inkscape:export-ydpi="107">
+      <g
+         inkscape:export-ydpi="107"
+         inkscape:export-xdpi="107"
+         inkscape:export-filename="D:\code\Unity\LD35\Assets\Sprites\Game\Entity\Box.png"
+         id="g4789">
+        <path
+           inkscape:connector-curvature="0"
+           style="opacity:1;fill:#937435;fill-opacity:1;fill-rule:evenodd;stroke:#665124;stroke-width:4.62185574;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           inkscape:transform-center-x="3.3111141"
+           inkscape:transform-center-y="-3.3111141"
+           d="m 534.7271,396.98167 c -3.10091,3.10091 -40.75259,3.10091 -43.8535,0 -3.10091,-3.10091 -3.10091,-40.75258 0,-43.85349 3.10091,-3.10091 40.75259,-3.10091 43.8535,0 3.10091,3.10091 3.10091,40.75258 0,43.85349 z"
+           id="path4182-72-1-47-4" />
+        <g
+           style="fill:#85692f;fill-opacity:1"
+           id="g5272">
+          <path
+             sodipodi:nodetypes="ccccccccc"
+             inkscape:connector-curvature="0"
+             id="path4755"
+             d="m 490.93414,370.82486 13.54955,0.57412 14.35591,-1.39486 15.89907,2.84105 -0.0247,5.9458 -15.27997,-2.63525 -16.75681,0.91946 -11.7985,-0.69448 z"
+             style="fill:#85692f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+          <path
+             sodipodi:nodetypes="ccccccccc"
+             inkscape:connector-curvature="0"
+             id="path4755-5"
+             d="m 491.1002,384.56386 10.19395,1.17156 16.94617,-0.13381 16.13921,0.89327 -0.57096,5.9458 -17.23463,-2.16059 -16.62583,0.53409 -8.39558,-0.69448 z"
+             style="fill:#85692f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        </g>
+      </g>
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:connector-curvature="0"
+         id="path4755-6"
+         d="m 491.54787,360.8125 11.40298,-1.38305 16.18681,-0.32157 15.08915,3.53553 0.46951,5.9458 -15.3431,-4.27675 -16.56741,0.73005 -11.7985,1.51523 z"
+         style="display:inline;fill:#85692f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
