@@ -10,6 +10,10 @@ public class GameGUIController: MonoBehaviour
     public VignetteAndChromaticAberration Vignette;
     public Fisheye Fishye;
 
+    public TextMeshController HintText;
+    public TextMeshController TimerText;
+    public Transform StartScreen;
+
     private float _targetAbberation = 0.2f;
     private float _targetFishEye = 0.3f;
 
@@ -28,12 +32,15 @@ public class GameGUIController: MonoBehaviour
             Fishye.strengthY = 0.4f;
         }
 
-        ScreenEffectController.ShineScreen(-0.05f, 0.1f);
+        if (!GameController.Player.IsDead)
+        {
+            ScreenEffectController.ShineScreen(-0.05f, 0.1f);
+        }
     }
 
     public void SetPlayerHealth(int hp)
     {
-        Vignette.intensity = 0.4f + (Constants.PlayerHp - hp)*0.04f;
+        Vignette.intensity = 0.4f + (Constants.PlayerHp - hp)*0.03f;
 
         Fishye.strengthX = 0.35f;
         Fishye.strengthY = 0.35f;
@@ -60,5 +67,25 @@ public class GameGUIController: MonoBehaviour
         } else {
              Fishye.strengthY = _targetFishEye;
         }
+    }
+
+    public void ShotHint(string text)
+    {
+        HintText.SetText(text);
+
+        var objTransform = HintText.transform;
+        objTransform.localPosition = new Vector3(0, -600, 0);
+        Tween.MoveEntity(objTransform, objTransform.position + new Vector3(0, 300, 0), 0.2f, null);
+    }
+
+    public void HideHint()
+    {
+        var objTransform = HintText.transform;
+        objTransform.localPosition = new Vector3(0, -300, 0);
+        Tween.MoveEntity(objTransform, objTransform.position - new Vector3(0, 300, 0), 0.2f, null);
+    }
+
+    public void HideStartScreen() {
+        Tween.MoveEntity(StartScreen, StartScreen.position + new Vector3(0, 1000, 0), 0.3f, null);
     }
 }

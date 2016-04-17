@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Map : MonoBehaviour
@@ -18,6 +17,7 @@ public class Map : MonoBehaviour
     public GameObject ArrowPrefab;
     public GameObject BossPrefab;
     public GameObject LockPrefab;
+    public GameObject HintPrefab;
     
     public Cell[,] Cells;
     public List<LevelEntity> Items = new List<LevelEntity>();
@@ -184,6 +184,28 @@ public class Map : MonoBehaviour
                 }
             }
         }
+        // Adding hint blocks
+
+        Cells[18, 23].AddItem(HintPrefab).GetComponent<Hint>().HintText = "KILL THE BOSS WHILE\nMUSIC IS BEATING";
+        Cells[18, 19].AddItem(HintPrefab).GetComponent<Hint>().HintText = "YOU CAN ENDURE ONLY 5 HiTS";
+        Cells[17, 20].AddItem(HintPrefab).GetComponent<Hint>().HintText = "PRESS R TO RESTART";
+        Cells[19, 20].AddItem(HintPrefab).GetComponent<Hint>().HintText = "YOU CAN MOVE ONLY\nIN MUSIC RYTHM";
+
+        Cells[18, 21].AddItem(HintPrefab).GetComponent<Hint>().HintText = "COLLECT 3 KEYS TO ENTER\nTHE BOSS ROOM";
+        Cells[15, 20].AddItem(HintPrefab).GetComponent<Hint>().HintText = "YOU CAN KILL THE CHARGING\nENEMIES BY STEP ON THEM";
+        Cells[18, 17].AddItem(HintPrefab).GetComponent<Hint>().HintText = "PURSUERS CAN BE KILLED ONLY\nBY ENVIRONMENT";
+        Cells[21, 20].AddItem(HintPrefab).GetComponent<Hint>().HintText = "MOVE ALL BOXES ON PLATES\nTO OPEN THE DOOR";
+        Cells[32, 29].AddItem(HintPrefab).GetComponent<Hint>().HintText = "PRESS R TO RESTART";
+        Cells[18, 27].AddItem(HintPrefab).GetComponent<Hint>().HintText = "BOSS HAVE 8 HEALTH\nDamage him by step on him!";
+        Cells[18, 28].AddItem(HintPrefab).GetComponent<Hint>().HintText = "GOOD LUCK!";
+
+        Cells[16, 28].AddItem(HintPrefab).GetComponent<Hint>().HintText = "THERE IS THE CHEAT\nExplore the map!";
+        Cells[5, 10].AddItem(HintPrefab).GetComponent<Hint>().HintText = "ITS NOT SO EASY...";
+        Cells[30, 8].AddItem(HintPrefab).GetComponent<Hint>().HintText = "PRESS O TO INSTANTLY\nOPEN BOSS ROOM";
+        Cells[1, 20].AddItem(HintPrefab).GetComponent<Hint>().HintText = "You have limited time!";
+        Cells[27, 23].AddItem(HintPrefab).GetComponent<Hint>().HintText = "Please leave you feedback\n on LD game page!";
+
+
         
     }
 
@@ -220,6 +242,10 @@ public class Map : MonoBehaviour
 
     public Cell GetCell(Vector2 v)
     {
+        if (v.x >= MapSize.x || v.y >= MapSize.y || v.x < 0 || v.y < 0)
+        {
+            return Cells[0, (int)(MapSize.y - 1)];
+        }
         return Cells[(int) v.x, (int) v.y];
     }
 
@@ -242,6 +268,7 @@ public class Map : MonoBehaviour
         _itemsToAdd.Add(item);
         return item;
     }
+
     public void DestroyItem(LevelEntity item)
     {
         _itemsToRemove.Add(item);

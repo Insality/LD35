@@ -43,7 +43,10 @@ public class Rabbit: LevelEntity
                 {
                     if (GameController.GetInstance().Map.IsCanStep(Coords + Player.GetDirection(direction), direction))
                     {
-                        Move(direction);
+                        if (Move(direction))
+                        {
+                            break;
+                        }
                     }
                 }
                 SetState(EnemyState.Charge);
@@ -58,13 +61,11 @@ public class Rabbit: LevelEntity
                 }
                 break;
             case EnemyState.Die:
-                SoundController.PlaySound(SoundType.BossDamage);
-                GameController.GetInstance().Map.DestroyItem(this);
                 break;
         }
     }
 
-    private void Move(MoveDirection dir)
+    private bool Move(MoveDirection dir)
     {
         GameController.GetInstance().Map.GetCell(Coords).SetState(CellState.Warning);
 
@@ -77,16 +78,22 @@ public class Rabbit: LevelEntity
         if (player.Coords.x == Coords.x && player.Coords.y == Coords.y)
         {
             player.Damage();
+            print("Player damage");
             Coords -= Player.GetDirection(dir);
             SetPos();
+            return true;
         }
+        
+        return false;
     }
 
     public override void OnPlayerEnter(MoveDirection dir)
     {
         base.OnPlayerEnter(dir);
-        SetState(EnemyState.Die);
-        GameController.GetInstance().Player.MoveInvert(dir);
+        SoundController.PlaySound(SoundType.BossDamage);
+        GameController.GetInstance().Map.DestroyItem(this);
+        enabled = false;
+        //        GameController.GetInstance().Player.MoveInvert(dir);
     }
 
     private void SetState(EnemyState state)

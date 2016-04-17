@@ -8,6 +8,7 @@ public class Player : BaseEntity {
     public Map Map;
     public int Level;
     public int Health;
+    public bool IsDead = false;
 
     private float _canStepTimeZone = 0.1f;
     private float _canStepTimer = 0f;
@@ -38,22 +39,42 @@ public class Player : BaseEntity {
 
     public void Damage()
     {
-        if (Health >= 0)
+        if (!IsDead)
         {
-            Health--;
+            if (Health > 0)
+            {
+                Health--;
 
-            SoundController.PlaySound(SoundType.PlayerDamage);
-            GameController.GetInstance().GameGuiController.ScreenEffectController.ShineScreen(-0.4f, 0.2f);
-            GameController.GetInstance().GameGuiController.Shaker.Shake(0.25f);
-            GameController.GetInstance().GameGuiController.SetPlayerHealth(Health);
+                SoundController.PlaySound(SoundType.PlayerDamage);
+                GameController.GetInstance().GameGuiController.ScreenEffectController.ShineScreen(-0.4f, 0.2f);
+                GameController.GetInstance().GameGuiController.Shaker.Shake(0.25f);
+                GameController.GetInstance().GameGuiController.SetPlayerHealth(Health);
+            }
+            else
+            {
+                Lose();
+
+            }
         }
-        else
-        {
-            SoundController.PlaySound(SoundType.Lose);
-            Tween.DelayAction(0.5f, ()=> SceneManager.LoadScene("game"));
-            
-        }
-        GameController.GetInstance().GameGuiController.PermanentShaker.ShakePower = 3 - Health;
+        GameController.GetInstance().GameGuiController.PermanentShaker.ShakePower = 4 - Health;
+    }
+
+    public void Lose()
+    {
+        SoundController.PlaySound(SoundType.Lose);
+        SoundController.StopMusic();
+        IsDead = true;
+        Tween.DelayAction(0.15f, () => GameController.GetInstance().GameGuiController.ScreenEffectController.RiseToDark(1.85f));
+        Tween.DelayAction(2f, () => SceneManager.LoadScene("game"));
+    }
+
+    public void Win() {
+        SoundController.StopMusic();
+        GameController.GetInstance().StopGame();
+        GameController.GetInstance().ShowHint("Congratulations!\nyou Beat the Beat Monster!\n\nSorry, this is all, good luck! ;)");
+
+        Tween.DelayAction(4f, () => GameController.GetInstance().GameGuiController.ScreenEffectController.RiseToDark(3f));
+        Tween.DelayAction(7f, () => SceneManager.LoadScene("game"));
     }
 
     protected override void Update()
@@ -67,8 +88,8 @@ public class Player : BaseEntity {
             }
         }
 
-//        if (_isCanStep)
-//        {
+        if (_isCanStep && !IsDead)
+        {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 TryMove(MoveDirection.Up);
@@ -85,7 +106,7 @@ public class Player : BaseEntity {
             {
                 TryMove(MoveDirection.Left);
             }
-//        }
+        }
     }
 
     private void TryMove(MoveDirection dir)
@@ -106,6 +127,7 @@ public class Player : BaseEntity {
         Map.MoveFromEvent(Coords - GetDirection(dir), dir);
         Map.MoveToEvent(Coords, dir);
         _isCanStep = false;
+        Graphics.gameObject.transform.localRotation = Quaternion.LookRotation(Vector3.forward, GetDirection(dir));
         SoundController.PlaySound(SoundType.PlayerMove);
     }
 
@@ -159,6 +181,8 @@ public class Player : BaseEntity {
                 throw new ArgumentOutOfRangeException("dir");
         }
     }
+
+
 }
 
 public enum MoveDirection

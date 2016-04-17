@@ -185,7 +185,10 @@ public class Boss: LevelEntity
                                 if (GameController.GetInstance()
                                     .Map.IsCanStep(Coords + Player.GetDirection(direction), direction))
                                 {
-                                    Move(direction);
+                                    if (Move(direction))
+                                    {
+                                        break;
+                                    }
                                 }
                             }
                             _chargeCounter = 0;
@@ -201,13 +204,14 @@ public class Boss: LevelEntity
             case EnemyState.Die:
                 SoundController.PlaySound(SoundType.EnemyHit);
                 GameController.GetInstance().Map.DestroyItem(this);
+                GameController.GetInstance().Player.Win();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
-    private void Move(MoveDirection dir)
+    private bool Move(MoveDirection dir)
     {
         GameController.GetInstance().Map.GetCell(Coords).SetState(CellState.Warning);
 
@@ -224,8 +228,10 @@ public class Boss: LevelEntity
                 player.Damage();
                 Coords -= Player.GetDirection(dir);
                 SetPos();
+                return true;
             }
         }
+        return false;
     }
 }
 

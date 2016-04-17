@@ -37,7 +37,7 @@ public class Cell : BaseEntity
         }
     }
 
-    public void AddItem(GameObject prefab)
+    public LevelEntity AddItem(GameObject prefab)
     {
         LevelEntity item = Instantiate(prefab).GetComponent<LevelEntity>();
         item.transform.parent = MyTransform.parent;
@@ -48,6 +48,7 @@ public class Cell : BaseEntity
         {
             Map.Plates.Add(item as Plate);
         }
+        return item;
     }
 
     public void OnMoveOn(MoveDirection dir)

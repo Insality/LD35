@@ -2,7 +2,7 @@
 
 public class ScreenEffectController : MonoBehaviour
 {
-    [SerializeField] private ScreenShineEffect ShineEffect;
+    [SerializeField] public ScreenShineEffect ShineEffect;
 
     public void ShineScreen(float intensity, float time)
     {
