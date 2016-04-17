@@ -8,6 +8,7 @@
         if (Cell.Map.IsCanStep(Coords + Player.GetDirection(Dir), Dir))
         {
             GameController.GetInstance().Player.Move(Dir);
+            SoundController.PlaySound(SoundType.ArrowJump);
         }
     }
 }

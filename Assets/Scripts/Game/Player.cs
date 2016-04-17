@@ -41,13 +41,17 @@ public class Player : BaseEntity {
         if (Health >= 0)
         {
             Health--;
-            GameController.GetInstance().GameGuiController.ScreenEffectController.ShineScreen(-0.3f, 0.1f);
-            GameController.GetInstance().GameGuiController.Shaker.Shake(0.15f);
+
+            SoundController.PlaySound(SoundType.PlayerDamage);
+            GameController.GetInstance().GameGuiController.ScreenEffectController.ShineScreen(-0.4f, 0.2f);
+            GameController.GetInstance().GameGuiController.Shaker.Shake(0.25f);
             GameController.GetInstance().GameGuiController.SetPlayerHealth(Health);
         }
         else
         {
-            SceneManager.LoadScene("game");
+            SoundController.PlaySound(SoundType.Lose);
+            Tween.DelayAction(0.5f, ()=> SceneManager.LoadScene("game"));
+            
         }
         GameController.GetInstance().GameGuiController.PermanentShaker.ShakePower = 3 - Health;
     }
@@ -63,8 +67,8 @@ public class Player : BaseEntity {
             }
         }
 
-        if (_isCanStep)
-        {
+//        if (_isCanStep)
+//        {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 TryMove(MoveDirection.Up);
@@ -81,7 +85,7 @@ public class Player : BaseEntity {
             {
                 TryMove(MoveDirection.Left);
             }
-        }
+//        }
     }
 
     private void TryMove(MoveDirection dir)
@@ -91,7 +95,7 @@ public class Player : BaseEntity {
         if (Map.IsCanStep(Coords+delta, dir)) {
            Move(dir);
         } else {
-            Coords -= delta;
+//           Coords -= delta;
         }
     }
 
@@ -102,6 +106,16 @@ public class Player : BaseEntity {
         Map.MoveFromEvent(Coords - GetDirection(dir), dir);
         Map.MoveToEvent(Coords, dir);
         _isCanStep = false;
+        SoundController.PlaySound(SoundType.PlayerMove);
+    }
+
+    public void MoveInvert(MoveDirection dir) {
+        if (Map.IsCanStep(Coords -= GetDirection(dir), dir))
+        {
+            Coords -= GetDirection(dir);
+            SetPos();
+            _isCanStep = false;
+        }
     }
 
     public void Upgrade()
@@ -110,6 +124,10 @@ public class Player : BaseEntity {
         {
             Level++;
             RefreshGraphics();
+            if (Level > 3)
+            {
+                SoundController.PlaySound(SoundType.Upgrade);
+            }
 
             GameController.GetInstance().GameGuiController.Shaker.Shake(0.1f);
             GameController.GetInstance().GameGuiController.ScreenEffectController.ShineScreen(0.1f, 0.1f);

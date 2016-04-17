@@ -20,6 +20,8 @@ public class Map : MonoBehaviour
     public Cell[,] Cells;
     public List<LevelEntity> Items = new List<LevelEntity>();
     public List<LevelEntity> _itemsToRemove = new List<LevelEntity>();
+    public List<LevelEntity> _itemsToAdd = new List<LevelEntity>();
+    public List<Plate> Plates = new List<Plate>();
 
    [HideInInspector] public Vector2 MapSize;
    [HideInInspector] public Vector2 SpawnPoint;
@@ -81,6 +83,10 @@ public class Map : MonoBehaviour
         _itemsToRemove.Clear();
 
 
+        foreach (var item in _itemsToAdd) {
+            Items.Add(item);
+        }
+        _itemsToAdd.Clear();
     }
 
     public bool IsCanStep(Vector2 coords, MoveDirection dir)
@@ -137,7 +143,7 @@ public class Map : MonoBehaviour
                         Cells[i, j].AddItem(KeyPrefab);
                         break;
                     case 'B':
-                        Cells[i, j].AddItem(BoxPrefab);
+                        AddItem(BoxPrefab, new Vector2(i, j));
                         break;
                     case 'T':
                         Cells[i, j].AddItem(TurretPrefab);
@@ -161,6 +167,15 @@ public class Map : MonoBehaviour
                     case 'H':
                         AddItem(HunterPrefab, new Vector2(i, j));
                         break;
+                    case 'R':
+                        AddItem(RabbitPrefab, new Vector2(i, j));
+                        break;
+                    case 'U':
+                        AddItem(BossPrefab, new Vector2(i, j));
+                        break;
+                    case 'D':
+                        Cells[i, j].AddItem(DoorPrefab);
+                        break;
                 }
             }
         }
@@ -173,7 +188,25 @@ public class Map : MonoBehaviour
 
     public void MoveToEvent(Vector2 coords, MoveDirection dir)
     {
+        var needRevert = false;
         Cells[(int)coords.x, (int)coords.y].OnMoveOn(dir);
+
+        foreach (var item in Items)
+        {
+            if (item.Coords.x == coords.x && item.Coords.y == coords.y)
+            {
+                item.OnPlayerEnter(dir);
+                if (!item.CanStepOn)
+                {
+                    needRevert = true;
+                }
+            }
+        }
+
+        if (needRevert)
+        {
+//            GameController.GetInstance().Player.MoveInvert(dir);
+        }
     }
 
     public void StayEvent(Vector2 coords) {
@@ -193,6 +226,15 @@ public class Map : MonoBehaviour
         item.Coords = coords;
         item.SetPosInstantly();
         Items.Add(item);
+        return item;
+    }
+
+    public LevelEntity AddItemInGame(GameObject prefab, Vector2 coords) {
+        LevelEntity item = Instantiate(prefab).GetComponent<LevelEntity>();
+        item.transform.parent = transform;
+        item.Coords = coords;
+        item.SetPosInstantly();
+        _itemsToAdd.Add(item);
         return item;
     }
     public void DestroyItem(LevelEntity item)

@@ -16,6 +16,12 @@ public class Hunter : LevelEntity
     {
         base.OnGameBeat(counter);
 
+        if (GameController.GetInstance().Map.GetCell(Coords).State == CellState.Damage)
+        {
+            SetState(EnemyState.Die);
+            SoundController.PlaySound(SoundType.BossDamage);
+        }
+
         switch (State)
         {
             case EnemyState.Waiting:
@@ -24,6 +30,10 @@ public class Hunter : LevelEntity
                 }
                 break;
             case EnemyState.Attacking:
+                if (Vector2.Distance(Coords, Target.Coords) >= 10) {
+                    SetState(EnemyState.Waiting);
+                }
+
                 var direction = PathUtils.GetDirectionToTarget(Coords, Target.Coords);
                 if (GameController.GetInstance().Map.IsCanStep(Coords + Player.GetDirection(direction), direction))
                 {
@@ -33,6 +43,7 @@ public class Hunter : LevelEntity
             case EnemyState.Charge:
                 break;
             case EnemyState.Die:
+                GameController.GetInstance().Map.DestroyItem(this);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

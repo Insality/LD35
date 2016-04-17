@@ -12,6 +12,7 @@ public class Cell : BaseEntity
 
     public void SetState(CellState state)
     {
+        if (state == CellState.Warning && State == CellState.Disabled) return;
         State = state;
         RefreshGraphics();
     }
@@ -42,6 +43,11 @@ public class Cell : BaseEntity
         item.transform.parent = MyTransform.parent;
         item.Init(this);
         LevelItem = item;
+
+        if (item is Plate)
+        {
+            Map.Plates.Add(item as Plate);
+        }
     }
 
     public void OnMoveOn(MoveDirection dir)

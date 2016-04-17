@@ -21,6 +21,7 @@ public class Spikes : LevelEntity {
         if (Cell.State == CellState.Warning)
         {
             Anim.Play("Spike");
+            SoundController.PlaySound(SoundType.Spikes);
         }
     }
 }

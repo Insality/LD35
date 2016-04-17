@@ -2,24 +2,21 @@
 
 public class Plate : LevelEntity
 {
-    private bool _isEnabled = false;
+    public bool IsEnabled = false;
 
-    public override void OnPlayerEnter(MoveDirection dir)
+    public override void OnGameBeat(int counter)
     {
-        base.OnPlayerEnter(dir);
-        if (!_isEnabled) { 
-            _isEnabled = true;
-            Graphics.SetSprite("PlateOn");
+        base.OnGameBeat(counter);
+        IsEnabled = false;
+        foreach (var item in Cell.Map.Items)
+        {
+            if (item.Coords.x == Coords.x && item.Coords.y == Coords.y)
+            {
+                IsEnabled = true;
+            }
         }
-    }
 
-    public override void OnPlayerLeave()
-    {
-        base.OnPlayerLeave();
-        if (_isEnabled) {
-            _isEnabled = false;
-            Graphics.SetSprite("PlateOff");
-        }
+        Graphics.SetSprite(IsEnabled ? "PlateOn" : "PlateOff");
     }
 
 }

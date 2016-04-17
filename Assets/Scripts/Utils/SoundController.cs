@@ -80,7 +80,7 @@ public class SoundController: MonoBehaviour
         {
             if (_soundsDict[type] != null)
             {
-                AudioSource.PlayClipAtPoint(_soundsDict[type], Vector3.zero, 1f);
+                AudioSource.PlayClipAtPoint(_soundsDict[type], Vector3.zero, 3f);
             }
             else
             {
@@ -141,8 +141,21 @@ public class MusicData {
 
 public enum SoundType
 {
-    TestKick = 0,
-    TestKick2 = 1,
+    ArrowJump = 0,
+    BossCharge1 = 1,
+    BossCharge2 = 2,
+    EnemyHit = 3,
+    Lose = 4,
+    OpenLock = 5,
+    PlayerMove = 6,
+    RabbitCharge = 7,
+    RabbitSpawn = 8,
+    Spikes = 9,
+    Tesla = 10,
+    TurretShot = 11,
+    Upgrade = 12,
+    PlayerDamage = 13,
+    BossDamage = 14,
 }
 
 

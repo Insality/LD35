@@ -20,6 +20,7 @@ public class Turret : LevelEntity
         {
             Shoot();
             Anim.Play("Resize");
+            SoundController.PlaySound(SoundType.TurretShot);
         }
     }
 
