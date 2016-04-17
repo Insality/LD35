@@ -110,7 +110,7 @@ public class Player : BaseEntity {
     }
 
     public void MoveInvert(MoveDirection dir) {
-        if (Map.IsCanStep(Coords -= GetDirection(dir), dir))
+        if (Map.IsCanStep(Coords - GetDirection(dir), dir))
         {
             Coords -= GetDirection(dir);
             SetPos();

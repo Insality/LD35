@@ -22,7 +22,7 @@
             Move();
         }
 
-        if (_currentLifeTime > 6)
+        if (_currentLifeTime > 9)
         {
             GameController.GetInstance().Map.DestroyItem(this);
         }

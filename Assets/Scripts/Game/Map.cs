@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Map : MonoBehaviour
@@ -16,6 +17,7 @@ public class Map : MonoBehaviour
     public GameObject TurretPrefab;
     public GameObject ArrowPrefab;
     public GameObject BossPrefab;
+    public GameObject LockPrefab;
     
     public Cell[,] Cells;
     public List<LevelEntity> Items = new List<LevelEntity>();
@@ -176,6 +178,9 @@ public class Map : MonoBehaviour
                     case 'D':
                         Cells[i, j].AddItem(DoorPrefab);
                         break;
+                    case 'L':
+                        Cells[i, j].AddItem(LockPrefab);
+                        break;
                 }
             }
         }
@@ -196,7 +201,7 @@ public class Map : MonoBehaviour
             if (item.Coords.x == coords.x && item.Coords.y == coords.y)
             {
                 item.OnPlayerEnter(dir);
-                if (!item.CanStepOn)
+                if (!item.CanStepOn && (item is Rabbit || item is Boss))
                 {
                     needRevert = true;
                 }

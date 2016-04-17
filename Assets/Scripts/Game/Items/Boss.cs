@@ -30,6 +30,10 @@ public class Boss: LevelEntity
     public void SetRandomBossAttack()
     {
         Style = (BossAttack) (Random.Range(0, 3));
+        if (Health <= 3)
+        {
+            Style = BossAttack.Charge;
+        }
     }
 
     public override void OnPlayerEnter(MoveDirection dir)
@@ -38,6 +42,7 @@ public class Boss: LevelEntity
         Damage();
         Move(dir);
         Move(dir);
+        GameController.GetInstance().Player.MoveInvert(dir);
     }
 
     private void Damage()
@@ -55,7 +60,7 @@ public class Boss: LevelEntity
         State = state;
         if (state == EnemyState.Waiting)
         {
-            _patternSwitch = 4;
+            _patternSwitch = (Health <= 3 ? 3 : 4);
         }
     }
 

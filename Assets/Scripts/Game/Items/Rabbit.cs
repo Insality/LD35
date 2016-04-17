@@ -86,6 +86,7 @@ public class Rabbit: LevelEntity
     {
         base.OnPlayerEnter(dir);
         SetState(EnemyState.Die);
+        GameController.GetInstance().Player.MoveInvert(dir);
     }
 
     private void SetState(EnemyState state)

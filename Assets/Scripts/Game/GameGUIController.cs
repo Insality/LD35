@@ -33,7 +33,7 @@ public class GameGUIController: MonoBehaviour
 
     public void SetPlayerHealth(int hp)
     {
-        Vignette.intensity = 0.4f + (Constants.PlayerHp - hp)*0.08f;
+        Vignette.intensity = 0.4f + (Constants.PlayerHp - hp)*0.04f;
 
         Fishye.strengthX = 0.35f;
         Fishye.strengthY = 0.35f;
